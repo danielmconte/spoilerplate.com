@@ -1,3 +1,6 @@
 [submodule "common"]
 	path = common
 	url = ./common
+[submodule "commonLibrary-spoilerplate-"]
+	path = commonLibrary-spoilerplate-
+	url = https://github.com/danielmconte/commonLibrary-spoilerplate-.git
