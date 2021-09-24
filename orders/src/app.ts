@@ -5,10 +5,9 @@ import cookieSession from 'cookie-session';
 import { errorHandler, NotFoundError, currentUser } from '@spoilerplate/common';
 
 import { deleteOrderRouter } from './routes/delete';
+import { indexOrderRouter} from './routes/index';
 import { newOrderRouter} from './routes/new';
 import { showOrderRouter} from './routes/show';
-import { indexOrderRouter} from './routes/index';
-
 
 
 
@@ -25,9 +24,10 @@ app.use(
 app.use(currentUser);
 
 app.use(deleteOrderRouter);
+app.use(indexOrderRouter);
 app.use(newOrderRouter);
 app.use(showOrderRouter);
-app.use(indexOrderRouter);
+
 
 
 app.all('*', async (req, res) => {
