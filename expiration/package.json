@@ -18,10 +18,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@spoilerplate/common": "^1.0.12",
+    "@spoilerplate/common": "^1.0.14",
     "@types/bull": "^3.15.4",
     "bull": "^3.29.2",
-    "node-nats-streaming": "^0.3.2",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.3.5"
   },
