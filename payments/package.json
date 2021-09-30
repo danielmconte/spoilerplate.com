@@ -1,5 +1,5 @@
 {
-  "name": "orders",
+  "name": "payments",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -18,7 +18,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@spoilerplate/common": "^1.0.14",
+    "@spoilerplate/common": "^1.0.12",
     "@types/cookie-session": "^2.0.43",
     "@types/express": "^4.17.13",
     "@types/jsonwebtoken": "^8.5.4",
