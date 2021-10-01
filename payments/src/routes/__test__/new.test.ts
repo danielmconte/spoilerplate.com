@@ -4,6 +4,7 @@ import { OrderStatus } from '@spoilerplate/common';
 import { app } from '../../app';
 import { Order } from '../../models/order';
 import { stripe } from '../../stripe';
+import { Payment } from '../../models/payment';
 
 jest.mock('../../stripe');
 
@@ -61,7 +62,7 @@ it('returns a 400 when purchasing a cancelled order', async () => {
 
 });
 
-it('returns a 204 with valid inputs', async () => {
+it('returns a 201 with valid inputs', async () => {
     const userId = mongoose.Types.ObjectId().toString();
 
     const order = Order.build({
@@ -83,7 +84,18 @@ it('returns a 204 with valid inputs', async () => {
     .expect(201);
 
     const chargeOptions = (stripe.charges.create as jest.Mock).mock.calls[0][0]
+    const stripeCharge = await(stripe.charges.create as jest.Mock).mock.results[0].value;
+    
     expect(chargeOptions.source).toEqual('tok_visa');
     expect(chargeOptions.amount).toEqual(20 * 100);
     expect(chargeOptions.currency).toEqual('usd');
+
+    const payment = await Payment.findOne({
+        orderId: order.id,
+        stripeId: stripeCharge.id
+    });
+
+    expect(payment).toBeDefined();
+    expect(payment!.orderId).toEqual(order.id);
+    expect(payment!.stripeId).toEqual(stripeCharge.id);
 });
