@@ -1,2 +1,2 @@
 # spoilerplate.com (underConstruction)
-This is the groundwork for a site using microservices and event-architecture. This React/Node.js site uses Docker, Kubernetes, Typescript, Next.js and testing with Jest. 
+This is the a site using microservices and event-architecture. This React/Node.js site features Docker, Kubernetes, Typescript, Next.js, Stripe payments, and testing with Jest. 
